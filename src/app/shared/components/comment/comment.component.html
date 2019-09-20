@@ -1,0 +1,63 @@
+<div class="media" *ngIf="replyCommentForm?.value">
+    <div class="media-left">
+
+        <a [routerLink]="['/', {outlets: {'main': ['dashboard', 'profile', comment?.createdBy?._id ]}}]">
+            <img class="author_avatar_comment"
+                [src]="comment?.createdBy?.avatar ? ((sexualabuseBucketURL + comment.createdBy.avatar) | safe: 'resourceUrl') : anonymousAvatar"
+                alt="Commentator Avatar">
+        </a>
+    </div>
+    <div class="media-body">
+        <div>
+            <div class="media-heading">
+                <a [routerLink]="['/', {outlets: {'main': ['dashboard', 'profile', comment?.createdBy?._id ]}}]">
+                    <h4>{{comment?.createdBy?.name }}</h4>
+                </a>
+                <span>{{fromNow(comment?.createdAt)}}</span>
+            </div>
+
+            <!-- <span class="comment-tag buyer">Purchased</span> -->
+
+            <button mat-mini-fab style="float: right" *ngIf="comment?.createdBy?._id === authService?.loggedInUser?._id"
+            (click)="deleteComment()" color="warn">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-mini-fab style="float: right" *ngIf="comment?.createdBy?._id === authService?.loggedInUser?._id" (click)="edit=true" color="primary">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-mini-fab style="float: right" *ngIf="!comment?.parentId" (click)="allowReply()" color="primary">
+                <mat-icon>reply</mat-icon>
+            </button>
+
+        </div>
+        <app-editor [readOnly]="edit ? false : true" (output)="updateFormData($event)" [data]="edit ? replyCommentForm?.get('text')?.value : replyCommentForm?.get('text')?.value" [id]="comment?._id"></app-editor>
+        <br/>
+        <button *ngIf="edit" type="button" class="btn btn--md btn--round" (click)="updateComment()">Update</button>
+        <!-- <p>{{comment?.text}}</p> -->
+    </div>
+</div>
+
+<!-- Recursive Children -->
+<div class="single-thread depth-2" *ngFor="let r of comment?.children">
+    <app-comment [comment]="r" [referenceId]="comment?.referenceId"></app-comment>
+</div>
+
+<!-- comment reply -->
+<div class="media depth-2 reply-comment" *ngIf="reply" [formGroup]="replyCommentForm">
+    <div class="media-left">
+        <a href="#">
+            <img class="author_avatar_comment"
+                [src]="comment?.createdBy?.avatar ? ((sexualabuseBucketURL + comment.createdBy.avatar) | safe: 'resourceUrl') : anonymousAvatar"
+                alt="Commentator Avatar">
+        </a>
+    </div>
+    <div class="media-body">
+        <div class="comment-reply-form">
+            <app-editor [data]="replyTextEditorData" (output)="updateFormData($event)" [id]="replyEditorId">
+            </app-editor>
+            <!-- <textarea class="bla" name="reply-comment" placeholder="Write your comment..."></textarea> -->
+            <button type="button" class="btn btn--md btn--round" (click)="addReply()">Reply</button>
+        </div>
+    </div>
+</div>
+<!-- comment reply -->

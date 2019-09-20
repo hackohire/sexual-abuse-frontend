@@ -1,0 +1,14 @@
+{
+	"auth": {
+		"sexualabuse00c59a79": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"storage": {
+		"sexualabuse": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}

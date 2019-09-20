@@ -1,0 +1,72 @@
+{
+    "identityPoolName": "sexualabuse00c59a79_identitypool_00c59a79",
+    "allowUnauthenticatedIdentities": true,
+    "lambdaLogPolicy": "sexual_00c59a79_lambda_log_policy",
+    "openIdLambdaRoleName": "sexual_00c59a79_openid_lambda_role",
+    "openIdRolePolicy": "sexual_00c59a79_openid_pass_role_policy",
+    "openIdLambdaIAMPolicy": "sexual_00c59a79_openid_lambda_iam_policy",
+    "openIdLogPolicy": "sexual_00c59a79_openid_lambda_log_policy",
+    "userPoolName": "sexualabuse00c59a79_userpool_00c59a79",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+        "SMS Text Message"
+    ],
+    "roleName": "sexual00c59a79_sns-role",
+    "roleExternalId": "sexual00c59a79_role_external_id",
+    "policyName": "sexual00c59a79-sns-policy",
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+        "email",
+        "name"
+    ],
+    "userpoolClientName": "sexual00c59a79_app_client",
+    "userpoolClientGenerateSecret": true,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientWriteAttributes": [
+        "email"
+    ],
+    "userpoolClientReadAttributes": [
+        "email"
+    ],
+    "mfaLambdaRole": "sexual00c59a79_totp_lambda_role",
+    "mfaLambdaLogPolicy": "sexual00c59a79_totp_lambda_log_policy",
+    "mfaPassRolePolicy": "sexual00c59a79_totp_pass_role_policy",
+    "mfaLambdaIAMPolicy": "sexual00c59a79_totp_lambda_iam_policy",
+    "userpoolClientLambdaRole": "sexual00c59a79_userpoolclient_lambda_role",
+    "userpoolClientLogPolicy": "sexual00c59a79_userpoolclient_lambda_log_policy",
+    "userpoolClientLambdaPolicy": "sexual00c59a79_userpoolclient_lambda_iam_policy",
+    "userpoolClientSetAttributes": false,
+    "resourceName": "sexualabuse00c59a79",
+    "authSelections": "identityPoolAndUserPool",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "unauthRoleArn": {
+        "Fn::GetAtt": [
+            "UnauthRole",
+            "Arn"
+        ]
+    },
+    "useDefault": "default",
+    "usernameAttributes": [
+        "email"
+    ]
+}
