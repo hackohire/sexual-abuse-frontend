@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   COGNITO_AUTH_DOMAIN: 'https://platform.auth.us-east-1.amazoncognito.com',
   graphql_url: 'https://vjz31logyj.execute-api.ap-south-1.amazonaws.com/prod/graphql',
-  sexualabuseFilesBucket: 'https://sexualabuse-files.s3.amazonaws.com/public/',
+  sexualabuseFilesBucket: 'https://sexual-abuse-files-prod.s3.amazonaws.com/public/',
   applicationId: '5d2ef428bbfa6576b357d5d4',
   oauth: {
     // Domain name
@@ -12,10 +12,10 @@ export const environment = {
     scope: ['email', 'profile', 'openid'],
 
     // Callback URL
-    redirectSignIn: 'https://www.sexualabuse.io', // or 'exp://127.0.0.1:19000/--/', 'myapp://main/'
+    redirectSignIn: 'https://sexual-abuse.herokuapp.com/', // or 'exp://127.0.0.1:19000/--/', 'myapp://main/'
 
     // Sign out URL
-    redirectSignOut: 'https://www.sexualabuse.io', // or 'exp://127.0.0.1:19000/--/', 'myapp://main/'
+    redirectSignOut: 'https://sexual-abuse.herokuapp.com/', // or 'exp://127.0.0.1:19000/--/', 'myapp://main/'
 
     // 'code' for Authorization code grant,
     // 'token' for Implicit grant

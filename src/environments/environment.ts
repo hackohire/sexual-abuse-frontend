@@ -7,7 +7,7 @@ export const environment = {
   COGNITO_AUTH_DOMAIN: 'https://platform.auth.us-east-1.amazoncognito.com',
   graphql_url: 'http://localhost:3200/graphql',
   applicationId: '5d2ef428bbfa6576b357d5d4',
-  sexualabuseFilesBucket: 'https://sexualabuse-files.s3.amazonaws.com/public/',
+  sexualabuseFilesBucket: 'https://sexual-abuse-files-prod.s3.amazonaws.com/public/',
   oauth: {
     // Domain name
     domain: 'sexual-abuse.auth.us-east-1.amazoncognito.com',
